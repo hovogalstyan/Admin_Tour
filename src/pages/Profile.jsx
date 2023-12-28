@@ -1,8 +1,8 @@
 import React  from 'react';
 import Wrapper from "../components/Wrapper";
-const Home = () => {
+const Profile = () => {
     return (
-        <Wrapper helmetTitle={'Home'}>
+        <Wrapper helmetTitle={'Profile'}>
             <section className={'home'}>
 
             </section>
@@ -10,4 +10,4 @@ const Home = () => {
     );
 };
 
-export default Home;
+export default Profile;

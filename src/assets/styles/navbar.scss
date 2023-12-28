@@ -49,6 +49,7 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    z-index: 999;
 
     .btn_icon {
       font-size: 16px;
@@ -71,6 +72,7 @@
       width: 100%;
       height: 100%;
       background: #002059;
+      transition: all 0.8s;
     }
   }
 }
@@ -83,7 +85,9 @@
   padding-right: 10px;
   padding-left: 10px;
 }
-
+.activeNavbar .nav_container .nav{
+  border-top-left-radius: 25px;
+}
 @keyframes logo-left {
   0% {
     transform: translateX(0) scaleY(1) scaleX(1);

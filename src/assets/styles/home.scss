@@ -1,0 +1,107 @@
+@import "variables";
+
+.home {
+  width: 100%;
+  padding: 0.7rem 0.5rem;
+  position: relative;
+  display: flex;
+
+  .btn_show_modal {
+    padding: 0.8rem 1.3rem;
+    background: #444444;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .content_message {
+    width: 500px;
+    padding: 0.5rem 0.5rem;
+    min-height: 190px;
+    background: white;
+    box-shadow: $lightShadow;
+
+
+    button {
+      display: block;
+      padding: 0.5rem 2rem;
+      margin: 1rem auto;
+      background: #444444;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  }
+
+  .button_message-enter-active {
+    animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  }
+
+  .button_message-exit {
+    opacity: 0;
+  }
+
+  .button_message-exit-active {
+    opacity: 0;
+  }
+
+  .message_modal-enter {
+    animation: message_modal-in-blurred-right .6s cubic-bezier(.23, 1.000, .32, 1.000) both
+  }
+
+  .message_modal-enter-active {
+    animation: message_modal-in-blurred-right .6s cubic-bezier(.23, 1.000, .32, 1.000) both
+  }
+
+  .message_modal-exit {
+    animation: message_modal-out-right-exit 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+  }
+
+  .message_modal-exit-active {
+    animation: message_modal-out-right-exit 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+  }
+}
+
+@keyframes message_modal-in-blurred-right {
+  0% {
+    transform: translateX(1000px) scaleX(2.5) scaleY(0.2);
+    transform-origin: 0 50%;
+    filter: blur(40px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0) scaleY(1) scaleX(1);
+    transform-origin: 50% 50%;
+    filter: blur(0);
+    opacity: 1;
+  }
+}
+
+
+@keyframes message_modal-out-right-exit {
+  0% {
+    transform: translateX(0) scaleY(1) scaleX(1);
+    transform-origin: 50% 50%;
+    filter: blur(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(500px) scaleX(2) scaleY(0.2);
+    transform-origin: 0 50%;
+    filter: blur(40px);
+    opacity: 0;
+  }
+}
+
+@keyframes slide-in-left {
+  0%, 80% {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}

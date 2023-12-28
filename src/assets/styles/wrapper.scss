@@ -1,0 +1,22 @@
+@import "variables";
+
+.wrapper {
+  width: 100%;
+  background: $light;
+  position: relative;
+  display: flex;
+  overflow: hidden;
+
+  .container {
+    width: 100%;
+    max-width: 1233px;
+    overflow: hidden;
+    margin: 0 auto;
+    transition: all 0.8s;
+    background: red;
+  }
+  .activeContainer{
+    max-width: 1448px;
+    background: red;
+  }
+}

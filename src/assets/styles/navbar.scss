@@ -1,0 +1,134 @@
+.left_navbar {
+  width: 300px;
+  min-height: 100vh;
+  background: #013EAC;
+  position: relative;
+  transition: all 0.8s;
+
+  .logo_navbar_block {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    display: flex;
+    justify-content: center;
+
+    .logos {
+      .logo_nav_tour_active {
+        position: absolute;
+        right: -250px;
+      }
+
+      .logo_nav_active {
+        animation: slide-in-blurred-left .6s cubic-bezier(.23, 1.000, .32, 1.000) both
+      }
+    }
+
+    .active_logo {
+      .logo_nav_active {
+        animation: logo-left 0.45s cubic-bezier(0.755, 0.050, 0.855, 0.060) both;
+      }
+
+      .logo_nav_tour_active {
+        animation: logo-right 0.6s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
+
+      }
+    }
+  }
+
+  .nav_close_button {
+    width: 25px;
+    height: 25px;
+    background: #002059;
+    position: absolute;
+    right: -10px;
+    top: 20px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    .btn_icon {
+      font-size: 16px;
+      color: #ffffff;
+      transition: all 0.8s;
+      transform: rotate(0);
+    }
+    .active_icon_btn{
+      transform: rotate(180deg);
+    }
+  }
+
+  .nav_container {
+    width: 100%;
+    height: 100%;
+    padding-left: 48px;
+    transition: all 0.8s;
+
+    .nav {
+      width: 100%;
+      height: 100%;
+      background: #002059;
+    }
+  }
+}
+
+.activeNavbar {
+  width: 80px;
+}
+
+.activeNavbar .nav_container {
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+@keyframes logo-left {
+  0% {
+    transform: translateX(0) scaleY(1) scaleX(1);
+    transform-origin: 50% 50%;
+    filter: blur(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-1000px) scaleX(2) scaleY(0.2);
+    transform-origin: 100% 50%;
+    filter: blur(40px);
+    opacity: 0;
+  }
+}
+
+@keyframes logo-right {
+  0% {
+    transform: scaleX(2.5) scaleY(0.2);
+    transform-origin: 0 50%;
+    filter: blur(40px);
+    opacity: 0;
+  }
+  100% {
+    transform: scaleY(1) scaleX(1);
+    transform-origin: 50% 50%;
+    filter: blur(0);
+    opacity: 1;
+    right: 0;
+    left: 0;
+    margin: auto;
+    max-width: max-content;
+  }
+}
+
+@keyframes slide-in-blurred-left {
+  0% {
+    transform: translateX(-1000px) scaleX(2.5) scaleY(.2);
+    transform-origin: 100% 50%;
+    filter: blur(40px);
+    opacity: 0
+  }
+  100% {
+    transform: translateX(0) scaleY(1) scaleX(1);
+    transform-origin: 50% 50%;
+    filter: blur(0);
+    opacity: 1
+  }
+}

@@ -3,6 +3,7 @@ import ActiveButton from "./ActiveButton";
 import {WrapperCreateContext} from "../Wrapper";
 import classNames from "classnames";
 import Logo from "./Logo";
+
 const Navbar = () => {
     const {activeNavbar} = useContext(WrapperCreateContext)
     return (
@@ -10,7 +11,7 @@ const Navbar = () => {
             activeNavbar
         })}>
             <ActiveButton/>
-             <Logo/>
+            <Logo/>
             <div className={'nav_container'}>
              <ul className={'nav'}>
 

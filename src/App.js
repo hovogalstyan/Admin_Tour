@@ -1,6 +1,9 @@
-import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import {BrowserRouter, Routes, Route, Navigate} from 'react-router-dom'
 import Profile from "./pages/Profile";
 import Login from "./pages/Login";
+import {useSelector} from "react-redux";
+import React from "react";
+
 
 function App() {
     return (
@@ -8,7 +11,6 @@ function App() {
             <Routes>
                 <Route path={'/login'} element={<Login/>}/>
                 <Route path={'/profile'} element={<Profile/>}/>
-                <Route path={'*'} element={<Profile/>}/>
             </Routes>
         </BrowserRouter>
     );

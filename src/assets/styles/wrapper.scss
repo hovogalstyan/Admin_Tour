@@ -13,10 +13,10 @@
     overflow: hidden;
     margin: 0 auto;
     transition: all 0.8s;
-    background: red;
+    background: $light;
   }
   .activeContainer{
     max-width: 1448px;
-    background: red;
+    background: $light;
   }
 }

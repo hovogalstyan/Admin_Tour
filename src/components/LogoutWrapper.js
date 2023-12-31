@@ -5,10 +5,9 @@ import {Navigate} from "react-router-dom";
 
 const LogoutWrapper = ({children,helmetTitle}) => {
      const token  = useSelector(state => state.users.token);
-
-    if(token){
-        return <Navigate to={'/profile'}/>
-    }
+    // if(token){
+    //     return <Navigate to={'/profile'} replace/>
+    // }
 
     return (
         <div className={'logout-wrapper'}>

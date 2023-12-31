@@ -1,4 +1,4 @@
-import React, {createContext, useEffect, useState} from 'react';
+import React, {createContext,  useState} from 'react';
 import {Helmet} from "react-helmet";
 import classNames from "classnames";
 
@@ -9,10 +9,10 @@ import {Navigate} from "react-router-dom";
 export const WrapperCreateContext = createContext(null)
 const Wrapper = ({children, helmetTitle}) => {
     const [activeNavbar, setActiveNavbar] = useState(false);
-     const token = useSelector(state => state.users.token);
+    const token = useSelector(state => state.users.token);
 
-    if(!token){
-        return  <Navigate to={'/login'}/>
+    if (token) {
+        return <Navigate to={'/login'} replace/>
     }
 
     return (
@@ -29,8 +29,8 @@ const Wrapper = ({children, helmetTitle}) => {
                 </Helmet>
                 <Navbar/>
                 <div
-                    className={classNames('container',{
-                        activeContainer:activeNavbar
+                    className={classNames('container', {
+                        activeContainer: activeNavbar
                     })}>
                     {children}
                 </div>

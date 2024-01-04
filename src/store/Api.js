@@ -40,7 +40,7 @@ export class Api {
         return api.post('users/validate-password-recovery-code', code);
     }
 
-    static updatePassword(password) {
+    static updateForgotPassword(password) {
         return api.post('users/password-update', password);
     }
 }

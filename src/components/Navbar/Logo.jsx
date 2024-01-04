@@ -1,8 +1,8 @@
 import React, {useContext, useEffect, useState} from 'react';
 import classNames from "classnames";
 import {WrapperCreateContext} from "../Wrapper";
-import logoImg from '../../assets/images/navbarLogo.png'
-import tourImg from '../../assets/images/tourLogo.png'
+import logoImg from '../../assets/icon/navbarLogo.png'
+import tourImg from '../../assets/icon/tourLogo.png'
 
 const Logo = () => {
     const {activeNavbar} = useContext(WrapperCreateContext)

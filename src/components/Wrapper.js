@@ -1,12 +1,20 @@
-import React, {createContext, useState} from 'react';
+import React, {createContext, useEffect, useState} from 'react';
 import {Helmet} from "react-helmet";
 import classNames from "classnames";
 
 import Navbar from "./Navbar/Navbar";
+import {useSelector} from "react-redux";
+import {Navigate} from "react-router-dom";
 
 export const WrapperCreateContext = createContext(null)
 const Wrapper = ({children, helmetTitle}) => {
     const [activeNavbar, setActiveNavbar] = useState(false);
+     const token = useSelector(state => state.users.token);
+
+    if(!token){
+        return  <Navigate to={'/login'}/>
+    }
+
     return (
         <WrapperCreateContext.Provider value={{
             activeNavbar,

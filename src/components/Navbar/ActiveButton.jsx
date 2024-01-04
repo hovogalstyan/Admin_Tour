@@ -12,8 +12,8 @@ const ActiveButton = () => {
 
 
     return (
-        <div className={classNames('nav_close_button')}>
-            <span onClick={handleShowNavbar} className={classNames('btn_icon',{
+        <div onClick={handleShowNavbar} className={classNames('nav_close_button')}>
+            <span  className={classNames('btn_icon',{
                 active_icon_btn: activeNavbar
             })} ><BsChevronLeft/></span>
         </div>

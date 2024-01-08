@@ -35,15 +35,21 @@ const Login = () => {
                 <form onSubmit={handleSubmit}>
                     <h1>Login</h1>
 
+                    {errors.message && <p className={"error"}>{errors.message}</p>}
+
                     <div className={"input-box"}>
-                        <input type="text" placeholder="Email"/>
+                        <input type="text" placeholder="Email" onChange={handleChange("email")}/>
                         {/*<UserIcon />*/}
                     </div>
 
+                    {errors.email && <p className={"error"}>{errors.email}</p>}
+
                     <div className={"input-box"}>
-                        <input type="password" placeholder="Password"/>
+                        <input type="password" placeholder="Password" onChange={handleChange("password")}/>
                         {/*<LockIcon />*/}
                     </div>
+
+                    {errors.password && <p className={"error"}>{errors.password}</p>}
 
                     <div className={"remember-forgot"}>
                         <label><input type="checkbox"/> Remember me </label>

@@ -1,7 +1,7 @@
 import React, {useCallback, useState} from 'react';
 import LogoutWrapper from "../components/LogoutWrapper";
 import {useDispatch, useSelector} from "react-redux";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {userLoginRequired} from "../store/actions/users";
 
 import {ReactComponent as UserIcon} from "../assets/icon/user.svg";
@@ -9,17 +9,23 @@ import {ReactComponent as LockIcon} from "../assets/icon/lock.svg";
 
 const Login = () => {
     const dispatch = useDispatch();
-
+    const navigate = useNavigate()
     const [formData, setFormData] = useState({
         email: "",
         password: "",
     });
 
-    const errors = useSelector(state => state.users.errors);
+   const [errors, setErrors] = useState({});
 
     const handleSubmit = useCallback(async (ev) => {
         ev.preventDefault();
-        await dispatch(userLoginRequired(formData));
+       const  {payload} = await dispatch(userLoginRequired(formData));
+       if(payload.errors){
+         setErrors(payload.errors)
+       }
+       if(payload.token){
+           navigate('/profile')
+       }
     }, [formData]);
 
     const handleChange = useCallback((path) => (ev) => {

@@ -11,10 +11,9 @@ const Wrapper = ({children, helmetTitle}) => {
     const [activeNavbar, setActiveNavbar] = useState(false);
     const token = useSelector(state => state.users.token);
 
-    if (token) {
-        return <Navigate to={'/login'} replace/>
+    if (!token) {
+        return <Navigate to={'/'} replace/>
     }
-
     return (
         <WrapperCreateContext.Provider value={{
             activeNavbar,

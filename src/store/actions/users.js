@@ -8,7 +8,7 @@ export const userLoginRequired = createAsyncThunk('user/login', async (arg = {},
         const {token, status, ...user} = data;
         Account.setToken(token)
         Account.getUser(user)
-        return user;
+        return data;
     } catch (e) {
         return thunkAPI.rejectWithValue(e.response.data);
     }

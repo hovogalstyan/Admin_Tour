@@ -26,6 +26,7 @@ const Login = () => {
        if(payload.token){
            navigate('/profile')
        }
+        console.log(payload)
     }, [formData]);
 
     const handleChange = useCallback((path) => (ev) => {

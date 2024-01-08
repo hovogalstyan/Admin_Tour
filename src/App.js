@@ -5,6 +5,7 @@ import Login from "./pages/Login";
 import Destinations from "./pages/Destinations";
 import Categories from "./pages/Categories";
 import Tours from "./pages/Tours";
+import ForgotPassword from "./pages/ForgotPassword";
 
 function App() {
     return (
@@ -15,6 +16,7 @@ function App() {
                 <Route path={'/all-destination'} element={<Destinations/>}/>
                 <Route path={'/all-categories'} element={<Categories/>}/>
                 <Route path={'/all-tour'} element={<Tours/>}/>
+                <Route path={'/forgot-password'} element={<ForgotPassword/>}/>
             </Routes>
         </BrowserRouter>
     );

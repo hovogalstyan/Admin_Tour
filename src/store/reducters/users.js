@@ -8,6 +8,7 @@ const initialState = {
     profile: Account.getUser(),
     token: Account.getToken(),
     loading: false,
+    errors: {},
 };
 export const users = createReducer(initialState, (builder) => {
     builder
@@ -21,8 +22,9 @@ export const users = createReducer(initialState, (builder) => {
             state.token = token;
         })
         .addCase(userLoginRequired.rejected, (state, action) => {
-            state.error = action.payload;
+            const {errors} = action.payload;
             state.loading = false;
+            state.errors = errors;
         })
         .addCase(userProfileRequired.pending, (state) => {
             state.loading = true;

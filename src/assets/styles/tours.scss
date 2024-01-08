@@ -1,0 +1,126 @@
+.tours{
+  width: 100%;
+  height: 100%;
+  background: #BEBEBE;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  .tours-list{
+    .path{
+      display: flex;
+      flex-direction: row;
+      margin-left: 50px;
+      margin-top: 150px;
+      color: #002059;
+      height: 30px;
+      font-family: Inter, sans-serif;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 172.156%;
+      letter-spacing: 1px;
+      span, a, svg {
+        margin-right: 10px;
+        cursor: pointer;
+      }
+      svg{
+        width: 30px;
+        height: 30px;
+      }
+    }
+
+    .list{
+      margin-top: 50px;
+      margin-left: 50px;
+      margin-bottom: 160px;
+      width: 900px;
+      height: 100%;
+      padding: 30px;
+      border-radius: 8px;
+      background: #E0DCDC;
+
+      .toursList{
+        width: 800px;
+        border: 1px solid #828282;
+        padding-top: 20px;
+        padding-left: 30px;
+        padding-right: 30px;
+        .category{
+          padding-top: 10px;
+          padding-left: 30px;
+          padding-right: 35px;
+          border-top: 1px solid #828282;
+          .buttons{
+            svg{
+              margin-right: 5px;
+            }
+          }
+        }
+
+        .toursBar{
+          padding-left: 50px;
+          padding-right: 70px;
+        }
+
+        .category, .toursBar{
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+        }
+        .id{
+          color: #002059;
+          font-family: Inter, sans-serif;
+          font-size: 18px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: normal;
+        }
+        span{
+          color: #E88716;
+          font-family: Inter, sans-serif;
+          font-size: 18px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: normal;
+        }
+      }
+
+      h4{
+        color: #002059;
+        font-family: Inter, sans-serif;
+        font-size: 28px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        margin-bottom: 30px;
+      }
+
+      .category{
+        img{
+          margin: 20px;
+          width: 200px;
+          height: 100px;
+        }
+        p{
+          margin: 20px;
+        }
+        button{
+          margin: 20px;
+          width: 200px;
+          height: 40px;
+          background-color: #e0a436;
+          text-align: center;
+          color: #234ac5;
+          border: none;
+        }
+        width: 700px;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        margin: 20px;
+        border: #e0a436;
+      }
+    }
+  }
+}

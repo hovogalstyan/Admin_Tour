@@ -1,8 +1,10 @@
 import axios from 'axios';
 import Account from "../helpers/Account";
 
+const { REACT_APP_API_URL } = process.env;
+
 const api = axios.create({
-    baseURL: "",
+    baseURL: REACT_APP_API_URL,
     Accept: 'application/json',
     ContentType: 'application/json',
 });
@@ -43,4 +45,13 @@ export class Api {
     static updateForgotPassword(password) {
         return api.post('users/password-update', password);
     }
+
+    static destinationsList(){
+        return api.get('/destinations/list');
+    }
+
+    static categoriesList() {
+        return api.get('/categories/list');
+    }
+
 }

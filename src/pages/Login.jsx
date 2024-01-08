@@ -19,14 +19,13 @@ const Login = () => {
 
     const handleSubmit = useCallback(async (ev) => {
         ev.preventDefault();
-       const  {payload} = await dispatch(userLoginRequired(formData));
-       if(payload.errors){
-         setErrors(payload.errors)
-       }
-       if(payload.token){
-           navigate('/profile')
-       }
-        console.log(payload)
+        const {payload} = await dispatch(userLoginRequired(formData));
+        if(payload.errors){
+            setErrors(payload.errors)
+        }
+        if(payload.token){
+            navigate('/profile')
+        }
     }, [formData]);
 
     const handleChange = useCallback((path) => (ev) => {

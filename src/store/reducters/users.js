@@ -1,5 +1,6 @@
 import {createReducer} from '@reduxjs/toolkit';
 import {
+    sendEmailForgotPasswordRequired,
     userLoginRequired, userProfileRequired,
 } from '../actions/users';
 import Account from "../../helpers/Account";
@@ -9,6 +10,7 @@ const initialState = {
     token: Account.getToken(),
     loading: false,
     errors: {},
+    statusEditPassword: "",
 };
 export const users = createReducer(initialState, (builder) => {
     builder
@@ -36,5 +38,8 @@ export const users = createReducer(initialState, (builder) => {
         .addCase(userProfileRequired.rejected, (state, action) => {
             state.tokenErrorsStatus = action.payload;
             state.loading = false;
-        });
+        })
+        .addCase(sendEmailForgotPasswordRequired.rejected, (state, action) => {
+            console.log(action.payload)
+        })
 });

@@ -97,6 +97,10 @@ export default [
                 img: require('../icon/help.png')
             }
         ]
+    },
+    {
+        id: 22,
+        name: "Log Out",
+        img: require("../icon/logOut.png")
     }
-
 ]

@@ -1,5 +1,6 @@
-import LogoutWrapper from "../components/LogoutWrapper";
 import React from "react";
+import LogoutWrapper from "../components/LogoutWrapper";
+
 
 const ForgotPassword = () => {
     return (

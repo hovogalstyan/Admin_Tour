@@ -1,11 +1,19 @@
+import React, {useCallback} from "react";
+import {useNavigate} from "react-router-dom";
 import LogoutWrapper from "../components/LogoutWrapper";
-import React from "react";
+
 
 const ForgotPassword = () => {
+    const navigate = useNavigate();
+
+    const handleSubmit = useCallback(() => {
+        navigate("/add-new-password");
+    })
+
     return (
         <LogoutWrapper helmetTitle={"Code Verification"}>
             <section className={"forgot-password"}>
-                <form>
+                <form onSubmit={handleSubmit}>
                     <h1>Forgot Password</h1>
                     <p>Code Verification</p>
 

@@ -4,6 +4,9 @@ import {useDispatch, useSelector} from "react-redux";
 import {Link} from "react-router-dom";
 import {userLoginRequired} from "../store/actions/users";
 
+import {ReactComponent as UserIcon} from "../assets/icon/user.svg";
+import {ReactComponent as LockIcon} from "../assets/icon/lock.svg";
+
 const Login = () => {
     const dispatch = useDispatch();
 
@@ -29,59 +32,26 @@ const Login = () => {
     return (
         <LogoutWrapper helmetTitle={"Login"}>
             <section className={"login"}>
-                <div className="login-wrap">
-                    <div className="login-html">
-                        <input id="tab-1" type="radio" name="tab" className="sign-in" checked/><label htmlFor="tab-1" className="tab">Sign In</label>
-                        <input id="tab-2" type="radio" name="tab" className="sign-up"/><label htmlFor="tab-2" className="tab">Sign Up</label>
-                        <div className="login-form">
-                            <div className="sign-in-htm">
-                                {errors.message && <p className="error">{errors.message}</p>}
-                                <div className="group">
-                                    <label htmlFor="user" className="label">Email</label>
-                                    <input id="user" type="text" className="input" onChange={handleChange("email")}/>
-                                    {errors.email && <p className="error">{errors.email}</p>}
-                                </div>
-                                <div className="group">
-                                    <label htmlFor="pass" className="label">Password</label>
-                                    <input id="pass" type="password" className="input" onChange={handleChange("password")}/>
-                                    {errors.password && <p className="error">{errors.password}</p>}
-                                </div>
-                                <div className="group">
-                                    <input type="submit" className="button" value="Sign In" onClick={handleSubmit}/>
-                                </div>
-                                <div className="hr"></div>
-                                <div className="foot-lnk">
-                                    <Link to={"/"}>Forgot Password?</Link>
-                                </div>
-                            </div>
-                            {/*<div className="sign-up-htm">*/}
-                            {/*    <div className="group">*/}
-                            {/*        <label htmlFor="user" className="label">Username</label>*/}
-                            {/*        <input id="user" type="text" className="input"/>*/}
-                            {/*    </div>*/}
-                            {/*    <div className="group">*/}
-                            {/*        <label htmlFor="pass" className="label">Password</label>*/}
-                            {/*        <input id="pass" type="password" className="input"/>*/}
-                            {/*    </div>*/}
-                            {/*    <div className="group">*/}
-                            {/*        <label htmlFor="pass" className="label">Repeat Password</label>*/}
-                            {/*        <input id="pass" type="password" className="input"/>*/}
-                            {/*    </div>*/}
-                            {/*    <div className="group">*/}
-                            {/*        <label htmlFor="pass" className="label">Email Address</label>*/}
-                            {/*        <input id="pass" type="text" className="input"/>*/}
-                            {/*    </div>*/}
-                            {/*    <div className="group">*/}
-                            {/*        <input type="submit" className="button" value="Sign Up"/>*/}
-                            {/*    </div>*/}
-                            {/*    <div className="hr"></div>*/}
-                            {/*    <div className="foot-lnk">*/}
-                            {/*        <label for="tab-1">Already Member?</label>*/}
-                            {/*    </div>*/}
-                            {/*</div>*/}
-                        </div>
+                <form onSubmit={handleSubmit}>
+                    <h1>Login</h1>
+
+                    <div className={"input-box"}>
+                        <input type="text" placeholder="Email"/>
+                        {/*<UserIcon />*/}
                     </div>
-                </div>
+
+                    <div className={"input-box"}>
+                        <input type="password" placeholder="Password"/>
+                        {/*<LockIcon />*/}
+                    </div>
+
+                    <div className={"remember-forgot"}>
+                        <label><input type="checkbox"/> Remember me </label>
+                        <Link to={"/"}>Forgot password? </Link>
+                    </div>
+
+                    <button type="submit" className={"btn"}>Login</button>
+                </form>
             </section>
         </LogoutWrapper>
     );

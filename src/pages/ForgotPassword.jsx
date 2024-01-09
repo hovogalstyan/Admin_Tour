@@ -69,7 +69,7 @@ const ForgotPassword = () => {
             if (formData.recoveryCode !== '') {
                 const {payload} = await dispatch(updateForgotPasswordRequired({
                     email: formData.email,
-                    newPassword: formData.recoveryCode
+                    newPassword: formData.newPassword
                 }))
                 if (payload.errors) {
                     setErrors(payload.errors)
@@ -82,6 +82,7 @@ const ForgotPassword = () => {
         }
     }, [statePage, formData])
 
+    console.log(errors)
 
     return (
         <LogoutWrapper helmetTitle={"Forgot Password"}>
@@ -96,6 +97,7 @@ const ForgotPassword = () => {
                                         value={formData.email}
                                         placeholder={'email'}
                                         onChange={handleChangeForm('email')}/>
+                                    {errors.email && <p className={"error"}>{errors.email}</p>}
                                 </ChangeEmail>
                                 : null
                         }
@@ -106,7 +108,7 @@ const ForgotPassword = () => {
                                         value={formData.recoveryCode}
                                         placeholder={'recovery code'}
                                         onChange={handleChangeForm('recoveryCode')}/>
-
+                                    {errors.recoveryCodeError && <p className={"error"}>{errors.recoveryCodeError}</p>}
                                 </ChangeCode>
                                 : null
                         }
@@ -119,6 +121,7 @@ const ForgotPassword = () => {
                                         onChange={handleChangeForm('newPassword')}
                                         styles={'pas_box_item'}
                                     />
+                                    {errors.newPassword && <p className={"error"}>{errors.newPassword}</p>}
                                 </UploadPassword>
                                 : null
                         }

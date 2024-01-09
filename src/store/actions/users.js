@@ -7,7 +7,7 @@ export const userLoginRequired = createAsyncThunk('user/login', async (arg = {},
         const {data} = await Api.login(arg);
         const {token, status, ...user} = data;
         Account.setToken(token)
-        Account.getUser(user)
+        Account.setUser(user)
         return data;
     } catch (e) {
         return thunkAPI.rejectWithValue(e.response.data);
@@ -25,7 +25,7 @@ export const userProfileRequired = createAsyncThunk('user/profile', async (arg, 
     }
 });
 
-export const sendEmailForgotPasswordRequired = createAsyncThunk("user/sendEmailForgotPasswordRequired", async (arg = {}, thunlAPI) => {
+export const sendEmailForgotPasswordRequired = createAsyncThunk("user/sendEmailForgotPasswordRequired", async (arg = {}, thunkAPI) => {
     try{
         const { data } = await Api.sendEmailForgotPassword(arg.email);
         return data;
@@ -34,7 +34,7 @@ export const sendEmailForgotPasswordRequired = createAsyncThunk("user/sendEmailF
     }
 })
 
-export const sendCodeForgotPasswordRequired = createAsyncThunk("user/sendCodeForgotPasswordRequired", async (arg = {}, thunlAPI) => {
+export const sendCodeForgotPasswordRequired = createAsyncThunk("user/sendCodeForgotPasswordRequired", async (arg = {}, thunkAPI) => {
     try{
         const { data } = await Api.sendCodeForgotPassword(arg.code);
         return data;
@@ -44,7 +44,7 @@ export const sendCodeForgotPasswordRequired = createAsyncThunk("user/sendCodeFor
 })
 
 
-export const updateForgotPasswordRequired = createAsyncThunk("user/updateForgotPasswordRequired", async (arg = {}, thunlAPI) => {
+export const updateForgotPasswordRequired = createAsyncThunk("user/updateForgotPasswordRequired", async (arg = {}, thunkAPI) => {
     try{
         const { data } = await Api.updateForgotPassword(arg.password);
         return data;

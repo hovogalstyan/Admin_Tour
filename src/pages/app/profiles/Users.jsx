@@ -14,11 +14,11 @@ const Users = () => {
     const loading = useSelector(state => state.users.loading);
     const list = useSelector(state => state.users.usersList);
     const pages = useSelector(state => state.users.pages);
-    const { page = 1 } = useParams();
+    const {page = 1} = useParams();
 
-    useEffect(()=>{
+    useEffect(() => {
         dispatch(usersListRequest({page}))
-    },[page])
+    }, [page])
 
     return (
         <div className={'users childrenWidth'}>
@@ -46,7 +46,7 @@ const Users = () => {
                         pageClassName={'item pagination-page '}
                         pageRangeDisplayed={2}
                         previousClassName={"item previous"}
-                        previousLabel={"<"} />
+                        previousLabel={"<"}/>
                 </div>
             </div>
 

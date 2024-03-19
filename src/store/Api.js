@@ -3,7 +3,7 @@ import {Account} from "../helpers/account";
 
 export const API_URL = 'http://localhost:4000/'
 const api = axios.create({
-    baseURL: 'http://127.0.0.1:4000'
+    baseURL: 'http://localhost:4000'
 })
 api.interceptors.request.use((config) => {
     const token = Account.getTokenStrong()
@@ -61,6 +61,7 @@ export class Api {
     static usersDelete(id) {
         return api.delete(`/users/delete/${id}`);
     }
+
     static addDestinations(payload) {
         return api.post("/destinations/add", payload, {
             headers: {
@@ -125,6 +126,10 @@ export class Api {
 
     static itemTour(id) {
         return api.get(`/toures/get-tour/${id}`)
+    }
+
+    static deleteTour(id) {
+        return api.delete(`/toures/delete/${id}`)
     }
 }
 

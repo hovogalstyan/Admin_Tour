@@ -40,9 +40,8 @@ export const users = createReducer(initialState, (builder) => {
             state.token = token
         })
         .addCase(userLoginRequest.rejected, (state, action) => {
-            const {errors} = action.payload
-            state.errors = errors
             state.loading = false
+            state.errors = action.payload.erroes
         })
         .addCase(userProfileRequest.fulfilled, (state, action) => {
             state.profile = action.payload
@@ -88,7 +87,7 @@ export const users = createReducer(initialState, (builder) => {
             state.status = status;
         })
         .addCase(usersDeleteRequest.rejected, (state, action) => {
-            const { errors } = action.payload;
+            const {errors} = action.payload;
             state.errors = errors;
         })
 })

@@ -5,7 +5,6 @@ import FeaturedImages from "../../../../components/tours/FeaturedImages";
 import SelectDestinationList from "../../../../components/tours/SelectDestinationList";
 import SelectCategoriesList from "../../../../components/tours/SelectCategoriesList";
 import ScheduleCalendar from "../../../../components/tours/ScheduleCalendar";
-import {MdOutlineDriveFolderUpload} from "react-icons/md";
 import FileGalery from "../../../../components/tours/FileGallery";
 import {useDispatch, useSelector} from "react-redux";
 import {addTourRequest} from "../../../../store/action/tours";
@@ -84,8 +83,8 @@ const AddNewTour = () => {
                             </div>
                             {errors?.title ? <small className={'errors_message'}>{errors.title}</small> : null}
                             <FeaturedImages/>
-                            <SelectDestinationList/>
-                            <SelectCategoriesList/>
+                            <SelectDestinationList setTour={setTour} errors={errors}/>
+                            <SelectCategoriesList setTour={setTour} errors={errors}/>
 
                             <div className={'input_item m_top'}>
                                 <input

@@ -1,5 +1,5 @@
 import {createReducer} from "@reduxjs/toolkit";
-import {addTourRequest, itemTourRequest, listTourRequest} from "../action/tours";
+import {addTourRequest, itemTourRequest, listTourRequest, updateTourRequest} from "../action/tours";
 
 
 const initialState = {
@@ -49,6 +49,20 @@ export const tours = createReducer(initialState, (builder) => {
         })
         .addCase(itemTourRequest.rejected, (state, action) => {
             const {errors} = action.payload
+            if (errors) {
+                state.errors = errors
+            }
+        })
+        .addCase(updateTourRequest.pending, (state) => {
+            state.loading = true
+        })
+        .addCase(updateTourRequest.fulfilled, (state, action) => {
+            state.loading = false
+            state.item = action.payload
+        })
+        .addCase(updateTourRequest.rejected, (state, action) => {
+            const {errors} = action.payload
+            state.loading = false
             if (errors) {
                 state.errors = errors
             }

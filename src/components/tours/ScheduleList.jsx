@@ -3,9 +3,7 @@ import {MdDelete} from "react-icons/md";
 import {TourContext} from "../../pages/app/profiles/tour/AddNewTour";
 import useGetDateFull from "../hooks/useGetDateFull";
 
-const ScheduleList = ({item, setSelectedDate}) => {
-    const tourContext = useContext(TourContext);
-    const {setTour, tour} = tourContext;
+const ScheduleList = ({item, setSelectedDate,tour,setTour}) => {
     const {getFullDate, time} = useGetDateFull(item);
 
     const handleDeleteDate = useCallback((date) => () => {

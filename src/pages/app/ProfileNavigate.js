@@ -22,6 +22,7 @@ import EditProfile from "./EditProfile";
 import EditAccountPassword from "./EditAccountPassword";
 import Categories from "./profiles/categories/Categories";
 import DetailsTour from "./profiles/tour/DetailsTour";
+import UpdateTour from "./profiles/tour/UpdateTour";
 
 const ProfileNavigate = () => {
     return (
@@ -38,6 +39,7 @@ const ProfileNavigate = () => {
                 <Route path={'/tour/settings-tours'} element={<AllTours/>}/>
                 <Route path={'/tour/add-new-tour'} element={<AddNewTour/>}/>
                 <Route path={'/tour-details/:id'} element={<DetailsTour/>}/>
+                <Route path={'/tour-update/:id'} element={<UpdateTour/>}/>
                 <Route path={'/services'} element={<Services/>}/>
                 <Route path={'/services/message'} element={<Message/>}/>
                 <Route path={'/hotels'} element={<Hotels/>}/>

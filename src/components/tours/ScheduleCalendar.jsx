@@ -1,4 +1,4 @@
-import React, {useCallback, useContext, useEffect, useMemo, useState} from 'react';
+import React, {useCallback, useContext, useState} from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import {TourContext} from "../../pages/app/profiles/tour/AddNewTour";
@@ -47,6 +47,8 @@ const ScheduleCalendar = () => {
                 {
                     tour.schedule.map((item, index) =>
                         <ScheduleList
+                            setTour={setTour}
+                            tour={tour}
                             setSelectedDate={setSelectedDate}
                             key={index}
                             item={item}/>)

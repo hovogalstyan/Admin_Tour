@@ -29,7 +29,7 @@ const AllTours = () => {
 
 
     const handleUpdate = useCallback((id) => () => {
-
+        navigation('/tour-update/' + id);
     }, []);
 
     const handlePageClick = useCallback(({selected}) => {
@@ -53,7 +53,7 @@ const AllTours = () => {
                                         <MdOutlineRemoveRedEye/>
                                     </li>
                                     <li
-                                        onClick={handleUpdate(item)}
+                                        onClick={handleUpdate(item.id)}
                                         className={'icon'}>
                                         <BiEdit/>
                                     </li>

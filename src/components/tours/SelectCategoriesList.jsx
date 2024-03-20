@@ -1,14 +1,11 @@
-import React, {useCallback, useContext, useEffect, useMemo} from 'react';
+import React, {useCallback, useEffect, useMemo} from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {TourContext} from "../../pages/app/profiles/tour/AddNewTour";
 import {allCategoriesRequest} from "../../store/action/categories";
 import Select from "react-select";
 
-const SelectCategoriesList = () => {
+const SelectCategoriesList = ({setTour, errors}) => {
     const list = useSelector(state => state.categories.list);
     const dispatch = useDispatch();
-    const tourContext = useContext(TourContext);
-    const {setTour, errors,tour} = tourContext;
 
     const options = useMemo(() => {
         return list.map(item => ({
@@ -31,7 +28,6 @@ const SelectCategoriesList = () => {
     return (
         <>
             <Select
-                defaultValue={tour.categoryId}
                 onChange={handleChange}
                 className={'destinations_select'}
                 placeholder={'Categories...'}

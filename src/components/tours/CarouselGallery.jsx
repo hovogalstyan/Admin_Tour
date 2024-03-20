@@ -1,18 +1,18 @@
-import React, {useCallback, useContext, useEffect} from 'react';
-import {TourContext} from "../../pages/app/profiles/tour/AddNewTour";
+import React, {useCallback, useEffect} from 'react';
 import CustomsPortal from "../CustomsPortal";
 import {FaWindowClose} from "react-icons/fa";
 import classNames from "classnames";
 import {GrLinkNext, GrLinkPrevious} from "react-icons/gr";
+import {API_URL} from "../../store/Api";
 
-const CarouselGallery = () => {
-    const {
-        tour: {gallery},
-        setActiveGalleryIndex,
-        activeGalleryIndex,
-        setShowCarousel,
-        showCarousel
-    } = useContext(TourContext);
+const CarouselGallery = ({
+                             gallery,
+                             setActiveGalleryIndex,
+                             activeGalleryIndex,
+                             setShowCarousel,
+                             showCarousel
+                         }
+) => {
 
     useEffect(() => {
         if (showCarousel) {
@@ -62,7 +62,8 @@ const CarouselGallery = () => {
                                 <figure key={index} className={classNames({
                                     activeImages: index === activeGalleryIndex
                                 })}>
-                                    <img src={URL.createObjectURL(item)} alt={item.name}/>
+                                    <img src={item.src ? `${API_URL}${item.src}` : URL.createObjectURL(item)}
+                                         alt={'gallery'}/>
                                 </figure>
                             ))
                         }
@@ -71,12 +72,13 @@ const CarouselGallery = () => {
                         </div>
                     </div>
                     <div className="bottom_list">
-                        {
+                        {gallery &&
                             gallery.map((item, index) => (
-                                <figure onClick={handleGetBottomIndex(index)} key={index + index} className={classNames({
+                                <figure onClick={handleGetBottomIndex(index)} key={index} className={classNames({
                                     activeBottomImages: index === activeGalleryIndex
                                 })}>
-                                    <img src={URL.createObjectURL(item)} alt={item.name}/>
+                                    <img src={item.src ? `${API_URL}${item.src}` : URL.createObjectURL(item)}
+                                         alt={'gallery'}/>
                                 </figure>
                             ))
                         }

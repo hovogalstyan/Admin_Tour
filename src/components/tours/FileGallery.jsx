@@ -10,7 +10,10 @@ const FileGallery = () => {
         setActiveGalleryIndex,
         setShowCarousel,
         filesErrors,
-        setFilesErrors
+        setFilesErrors,
+        activeGalleryIndex,
+        setShowCarouse,
+        showCarousel
     } = useContext(TourContext);
 
     const handleChangeFiles = useCallback((e) => {
@@ -89,7 +92,13 @@ const FileGallery = () => {
                     : null
             }
 
-            <CarouselGallery/>
+            <CarouselGallery
+                gallery={tour.gallery}
+                setActiveGalleryIndex={setActiveGalleryIndex}
+                activeGalleryIndex={activeGalleryIndex}
+                setShowCarouse={setShowCarousel}
+                showCarousel={showCarousel}
+            />
             {filesErrors.gallery ? <small className={'errors_message'}>{filesErrors.gallery}</small> : null}
         </div>
     );

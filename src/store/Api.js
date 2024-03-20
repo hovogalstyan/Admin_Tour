@@ -131,6 +131,24 @@ export class Api {
     static deleteTour(id) {
         return api.delete(`/toures/delete/${id}`)
     }
+
+    static updateTour(payload) {
+        const {id, tour} = payload
+        console.log(tour, 'hello')
+        return api.put(`/toures/update/${id}`, tour, {
+            headers: {
+                'Content-Type': 'multipart/form-data',
+            }
+        })
+    }
+
+    static deleteTourGallery(imageId) {
+        return api.delete(`/toures/remove-gallery-image/${imageId}`)
+    }
+
+    static deleteTourSchedule(scheduleId) {
+        return api.delete(`/toures/remove-schedule/${scheduleId}`)
+    }
 }
 
 

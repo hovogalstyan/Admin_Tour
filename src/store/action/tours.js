@@ -35,3 +35,28 @@ export const deleteTourRequest = createAsyncThunk('delete/tour', async (id = 1, 
         return thunkAPI.rejectWithValue(e.response.data)
     }
 })
+
+export const updateTourRequest = createAsyncThunk('update/tour', async (payload = {}, thunkAPI) => {
+    try {
+        const {data} = await Api.updateTour(payload);
+        return data
+    } catch (e) {
+        return thunkAPI.rejectWithValue(e.response.data)
+    }
+})
+export const deleteGalleryItemTourRequest = createAsyncThunk('gallery-img/tour', async (id, thunkAPI) => {
+    try {
+        const {data} = await Api.deleteTourGallery(id);
+        return data
+    } catch (e) {
+        return thunkAPI.rejectWithValue(e.response.data)
+    }
+})
+export const deleteScheduleItemTourRequest = createAsyncThunk('gallery-img/tour', async (id, thunkAPI) => {
+    try {
+        const {data} = await Api.deleteTourSchedule(id);
+        return data
+    } catch (e) {
+        return thunkAPI.rejectWithValue(e.response.data)
+    }
+})

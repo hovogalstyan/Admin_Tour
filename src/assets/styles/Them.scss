@@ -294,5 +294,28 @@
       }
     }
   }
+
+  .tour{
+    .cont_tour{
+      .item{
+        background: $light;
+      }
+    }
+  }
+
+  .details-tour{
+    .item{
+      .top_about{
+        .right_about{
+          span{
+            color: #fff;
+          }
+          p{
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
 }
 

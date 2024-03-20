@@ -268,5 +268,31 @@
       }
     }
   }
+
+  .add_new_tour{
+    .cont_form{
+      .left_item{
+        .input_item{
+          input{
+            background: $light;
+          }
+        }
+      }
+
+      .right_item{
+        .schedule_calendar{
+          .schedule_list{
+            color: $light;
+            p{
+              color: $light;
+            }
+            svg{
+              fill: $light;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 

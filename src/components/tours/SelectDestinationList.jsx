@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {allDestinationRequest} from "../../store/action/destinations";
 import Select from "react-select";
 
-const SelectDestinationList = ({errors, setTour}) => {
+const SelectDestinationList = ({errors, setTour, item}) => {
     const list = useSelector(state => state.destination.list);
     const dispatch = useDispatch();
 
@@ -32,6 +32,7 @@ const SelectDestinationList = ({errors, setTour}) => {
                 className={'destinations_select'}
                 placeholder={'Destinations...'}
                 options={options}
+                defaultValue={item && {value: item.destination.id, label: item.destination.title}}
             />
             {errors.destinationId ? <small className={'errors_message'}>is not allowed to be empty</small> : null}
         </>

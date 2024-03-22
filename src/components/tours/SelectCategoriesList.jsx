@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {allCategoriesRequest} from "../../store/action/categories";
 import Select from "react-select";
 
-const SelectCategoriesList = ({setTour, errors}) => {
+const SelectCategoriesList = ({setTour, errors, item}) => {
     const list = useSelector(state => state.categories.list);
     const dispatch = useDispatch();
 
@@ -32,6 +32,7 @@ const SelectCategoriesList = ({setTour, errors}) => {
                 className={'destinations_select'}
                 placeholder={'Categories...'}
                 options={options}
+                defaultValue={item && {value: item.category.id, label: item.category.title}}
             />
             {errors.categoryId ? <small className={'errors_message'}>is not allowed to be empty</small> : null}
         </>

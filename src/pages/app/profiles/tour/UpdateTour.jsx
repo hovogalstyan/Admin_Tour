@@ -133,8 +133,8 @@ const UpdateTour = () => {
                             </figure>
                         </div>
 
-                        <SelectDestinationList setTour={setTour} errors={{}}/>
-                        <SelectCategoriesList setTour={setTour} errors={{}}/>
+                        <SelectDestinationList setTour={setTour} item={item} errors={{}}/>
+                        <SelectCategoriesList setTour={setTour} item={item} errors={{}}/>
                         <div className="input_item">
                             <input
                                 value={tour.duration}

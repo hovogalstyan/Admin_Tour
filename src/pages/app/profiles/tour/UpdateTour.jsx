@@ -1,7 +1,7 @@
 import React, {useCallback, useEffect, useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {itemTourRequest, updateTourRequest} from "../../../../store/action/tours";
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import {MdOutlineDriveFolderUpload} from "react-icons/md";
 import {API_URL} from "../../../../store/Api";
 import SelectDestinationList from "../../../../components/tours/SelectDestinationList";
@@ -20,6 +20,7 @@ const UpdateTour = () => {
     const item = useSelector(state => state.tours.item?.tour);
     const params = useParams();
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const {id} = params;
 
     useEffect(() => {
@@ -72,7 +73,7 @@ const UpdateTour = () => {
     }, []);
 
 
-    const handleCreateTour = useCallback((e) => {
+    const handleCreateTour = useCallback(async (e) => {
         e.preventDefault()
         const {gallery, schedule, ...data} = tour
         const filteredGallery = gallery.filter(item => {
@@ -83,7 +84,7 @@ const UpdateTour = () => {
             return item.date === undefined
         });
 
-        dispatch(updateTourRequest({
+        const {payload} = await dispatch(updateTourRequest({
             id,
             tour: {
                 ...data,
@@ -92,6 +93,9 @@ const UpdateTour = () => {
             }
         }))
 
+        if(payload.status === "ok"){
+            navigate(`/tour/settings-tours`)
+        }
     }, [tour]);
 
     return (
